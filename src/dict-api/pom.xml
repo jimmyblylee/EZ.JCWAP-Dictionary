@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.lee</groupId>
+        <artifactId>platform</artifactId>
+        <version>1.0.1.RELEASE</version>
+        <relativePath/>
+    </parent>
+    
+    <groupId>com.lee.ez</groupId>
+    <artifactId>jcwap-dict-api</artifactId>
+    <version>1.0.0.RELEASE</version>
+    <packaging>jar</packaging>
+
+    <name>JCWAP Dictionary API</name>
+    <description>
+        <![CDATA[
+            EZ series production <br>
+            JCWAP(Java-based Customized Web Application Platform) <br>
+            Dictionary API for application. Including service api, entities api and entities default implementation.
+        ]]>
+    </description>
+    
+    <properties>
+        <jwaf-token-api.version>1.0.0.RELEASE</jwaf-token-api.version>
+        <jwaf-exception.version>1.0.0.RELEASE</jwaf-exception.version>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.lee.ez</groupId>
+            <artifactId>jwaf-token-api</artifactId>
+            <version>${jwaf-token-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lee.ez</groupId>
+            <artifactId>jwaf-exception</artifactId>
+            <version>${jwaf-exception.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+        </dependency>
+    </dependencies>
+    
+    <repositories>
+        <repository>
+            <id>lee-git-repo</id>
+            <name>Jimmybly Lee's personal Github Repository</name>
+            <url>https://raw.githubusercontent.com/jimmyblylee/maven-repo/master/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+</project>
