@@ -11,7 +11,8 @@
     <description>EZ series production JLCWAP(Java-based Lightweight Customized Web Application Platform) Dictionary Aggregator</description>
     
     <modules>
-        <module>dict</module>
+        <module>dict-api</module>
+        <module>dict-serv</module>
         <module>dict-ui</module>
     </modules>
 </project>
