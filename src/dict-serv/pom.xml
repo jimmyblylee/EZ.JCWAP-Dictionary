@@ -1,0 +1,170 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.lee</groupId>
+        <artifactId>platform</artifactId>
+        <version>1.0.1.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.lee.ez</groupId>
+    <artifactId>jcwap-dict-serv</artifactId>
+    <version>1.0.0.RELEASE</version>
+    <packaging>ejb</packaging>
+
+    <name>JCWAP Dict Service Implementation</name>
+    <description>
+        <![CDATA[
+            EZ series production <br>
+            JCWAP(Java-based Customized Web Application Platform) <br>
+            Dictionary Service Implementation for Dict API.<br>
+            The project is configured with ejb, but it still can be integrated with light-weight framework.
+        ]]>
+    </description>
+
+    <properties>
+        <jwaf-jpa-op-sp.version>1.0.0.RELEASE</jwaf-jpa-op-sp.version>
+        <jcwap-dict-api.version>1.0.0.RELEASE</jcwap-dict-api.version>
+        <spring-test-unitils.version>1.0.0.RELEASE</spring-test-unitils.version>
+    </properties>
+
+    <dependencies>
+        <!--
+            ez platform
+        -->
+        <dependency>
+            <groupId>com.lee.ez</groupId>
+            <artifactId>jcwap-dict-api</artifactId>
+            <version>${jcwap-dict-api.version}</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.lee.ez</groupId>
+            <artifactId>jwaf-jpa-op-sp</artifactId>
+            <version>${jwaf-jpa-op-sp.version}</version>
+        </dependency>
+
+        <!--
+            persistence
+        -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+
+        <!--
+            container
+        -->
+        <dependency>
+            <groupId>javax.ejb</groupId>
+            <artifactId>ejb-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <!-- driver for mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <!-- distributed tx support -->
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-jdbc</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.atomikos</groupId>
+            <artifactId>transactions-jta</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.lee.tools</groupId>
+            <artifactId>simple-jta-platform</artifactId>
+            <version>1.0.0.RELEASE</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!--
+            other
+        -->
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+        </dependency>
+
+        <!--
+            log
+        -->
+        <!-- logback -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <!-- slf4j jcl to replace commons-logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--
+            for junit test
+        -->
+        <!-- unitils -->
+        <dependency>
+            <groupId>com.lee.tools</groupId>
+            <artifactId>spring-test-unitils</artifactId>
+            <version>${spring-test-unitils.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>lee-git-repo</id>
+            <name>Jimmybly Lee's personal Github Repository</name>
+            <url>https://raw.githubusercontent.com/jimmyblylee/maven-repo/master/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+</project>

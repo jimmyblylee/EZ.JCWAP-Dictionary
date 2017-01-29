@@ -17,10 +17,31 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
+package com.lee.jcwap.dict.service.impl.jee;
+
+import javax.ejb.EJB;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+
+import com.lee.jcwap.dict.dao.jee.SysDictDaoBean;
+import com.lee.jcwap.dict.service.impl.AbstractDictService;
+
 /**
- * ClassName : package-info <br>
- * Description : entities for feature of dictionary <br>
- * Create Time : 2016-09-23 <br>
- * Create by : jimmyblylee@126.com
+ * Description : JEE implementation for DictService. <br>
+ * Create Time : 2017/1/25.<br>
+ *
+ * @author jimmyblylee@126.com
  */
-package com.lee.jcwap.dict.entity;
+@Stateless
+@Local
+public class DictServiceBean extends AbstractDictService {
+
+    /** DaoBean. */
+    @EJB
+    private SysDictDaoBean dao;
+
+    @Override
+    protected SysDictDaoBean getSysDictDao() {
+        return this.dao;
+    }
+}

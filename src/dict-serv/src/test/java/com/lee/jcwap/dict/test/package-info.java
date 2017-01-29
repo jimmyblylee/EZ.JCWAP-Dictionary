@@ -19,8 +19,8 @@
 
 /**
  * ClassName : package-info <br>
- * Description : entities for feature of dictionary <br>
- * Create Time : 2016-09-23 <br>
+ * Description : unit test for dict <br>
+ * Create Time : 2016-09-26 <br>
  * Create by : jimmyblylee@126.com
  */
-package com.lee.jcwap.dict.entity;
+package com.lee.jcwap.dict.test;

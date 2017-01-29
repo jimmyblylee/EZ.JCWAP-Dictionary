@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd"
+    xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee">
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.lee.jcwap.dict.service.impl.lw" />
+    <context:component-scan base-package="com.lee.jcwap.dict.dao.lw" />
+
+    <bean id="dictEntityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="dict_mgmt" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="database" value="MYSQL" />
+            </bean>
+        </property>
+        <property name="jtaDataSource">
+            <bean class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close" depends-on="atomikosTransactionService">
+                <property name="uniqueResourceName" value="dict_ds" />
+                <property name="xaDataSource">
+                    <jee:jndi-lookup jndi-name="jdbc/dict" />
+                </property>
+                <property name="maxPoolSize" value="50" />
+                <property name="minPoolSize" value="10" />
+                <property name="maxLifetime" value="30000" />
+            </bean>
+        </property>
+    </bean>
+</beans>

@@ -17,10 +17,35 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
+package com.lee.jcwap.dict.service.impl.lw;
+
+import static org.springframework.beans.factory.config.ConfigurableBeanFactory.SCOPE_PROTOTYPE;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+
+import com.lee.jcwap.dict.dao.lw.SysDictDao;
+import com.lee.jcwap.dict.service.impl.AbstractDictService;
+
 /**
- * ClassName : package-info <br>
- * Description : entities for feature of dictionary <br>
- * Create Time : 2016-09-23 <br>
- * Create by : jimmyblylee@126.com
+ * Description : Light-weight implementation for DictService. <br>
+ * Create Time : 2017/1/25.<br>
+ *
+ * @author jimmyblylee@126.com
  */
-package com.lee.jcwap.dict.entity;
+@Service
+@Scope(value = SCOPE_PROTOTYPE)
+@SuppressWarnings("unused")
+public class DictServiceImpl extends AbstractDictService {
+
+    /** Dao. */
+    @Resource
+    private SysDictDao dao;
+
+    @Override
+    protected SysDictDao getSysDictDao() {
+        return this.dao;
+    }
+}

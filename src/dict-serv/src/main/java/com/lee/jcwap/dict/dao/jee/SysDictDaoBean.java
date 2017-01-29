@@ -17,10 +17,34 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
+package com.lee.jcwap.dict.dao.jee;
+
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.lee.jcwap.dict.entity.SysDict;
+import com.lee.jwaf.jpa.AbstractDao;
+
 /**
- * ClassName : package-info <br>
- * Description : entities for feature of dictionary <br>
- * Create Time : 2016-09-23 <br>
- * Create by : jimmyblylee@126.com
+ * Description : dao of entity {@link SysDict}. <br>
+ * Create Time : 2017/1/25.<br>
+ *
+ * @author jimmyblylee@126.com
  */
-package com.lee.jcwap.dict.entity;
+@Stateless
+@Local
+public class SysDictDaoBean extends AbstractDao {
+
+    /** EntityManager. */
+    @PersistenceContext(unitName = "dict_mgmt")
+    private EntityManager entityManager;
+
+    /**
+     *  @return the entity manager.
+     *  */
+    protected EntityManager em() {
+        return entityManager;
+    }
+}

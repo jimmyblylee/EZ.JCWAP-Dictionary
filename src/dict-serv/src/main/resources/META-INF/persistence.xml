@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2009, 2010 Oracle and/or its affiliates. All rights reserved. -->
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence.xsd">
+
+    <persistence-unit name="dict_mgmt" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- managed entities -->
+        <!-- named query -->
+        <mapping-file>META-INF/mysql/dict/query.xml</mapping-file>
+        <!-- mapping entity -->
+        <class>com.lee.jcwap.dict.entity.SysDict</class>
+        <!-- only @Entity annotated Entity will be monitored -->
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.format_sql" value="false" />
+            <property name="hibernate.jdbc.batch_size" value="50" />
+            <property name="hibernate.jdbc.fetch_size" value="100" />
+            <property name="hibernate.current_session_context_class" value="jta"/>
+            <property name="hibernate.search.autoregister_listeners" value="false"/>
+            <property name="hibernate.validator.autoregister_listeners" value="false" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+            <property name="hibernate.transaction.jta.platform" value="com.lee.jta.SimpleJtaPlatform"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

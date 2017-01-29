@@ -19,8 +19,8 @@
 
 /**
  * ClassName : package-info <br>
- * Description : entities for feature of dictionary <br>
+ * Description : Java-based Customized Web Application Platform Dictionary Service Implementation <br>
  * Create Time : 2016-09-23 <br>
  * Create by : jimmyblylee@126.com
  */
-package com.lee.jcwap.dict.entity;
+package com.lee.jcwap.dict.service.impl;

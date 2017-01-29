@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm.xsd"
+                 version="2.1">
+    <named-query name="hql.dict.getDictByNatureAndCode">
+        <query>
+            <![CDATA[
+            select d
+             from com.lee.jcwap.dict.entity.SysDict as d
+            where d.nature = :nature
+              and d.code = :code
+            ]]>
+        </query>
+    </named-query>
+    <named-query name="hql.dict.queryDictByBaseCondition">
+        <query>
+            <![CDATA[
+            select d
+             from com.lee.jcwap.dict.entity.SysDict as d
+            where 1=1
+              and (:id is null or d.id = :id)
+              and (:parentNature is null or d.parent.nature = :parentNature)
+              and (:nature is null or d.nature = :nature)
+              and (:code is null or d.code = :code)
+              and (:value is null or d.value like :value)
+              and (:pinyin is null or d.pinyin like :pinyin)
+              and (:pinyinShort is null or d.pinyinShort like :pinyinShort)
+              and (:isEnabled is null or d.isEnabled = :isEnabled)
+            order by d.order
+            ]]>
+        </query>
+    </named-query>
+    <named-query name="hql.dict.getDictCountByBaseCondition">
+        <query>
+            <![CDATA[
+            select count(d)
+             from com.lee.jcwap.dict.entity.SysDict as d
+            where 1=1
+              and (:id is null or d.id = :id)
+              and (:parentNature is null or d.parent.nature = :parentNature)
+              and (:nature is null or d.nature = :nature)
+              and (:code is null or d.code = :code)
+              and (:value is null or d.value like :value)
+              and (:pinyin is null or d.pinyin like :pinyin)
+              and (:pinyinShort is null or d.pinyinShort like :pinyinShort)
+              and (:isEnabled is null or d.isEnabled = :isEnabled)
+            order by d.order
+            ]]>
+        </query>
+    </named-query>
+
+</entity-mappings>

@@ -19,8 +19,8 @@
 
 /**
  * ClassName : package-info <br>
- * Description : entities for feature of dictionary <br>
+ * Description : Java-based Lightweight Customized Web Application Platform Dictionary Dao <br>
  * Create Time : 2016-09-23 <br>
  * Create by : jimmyblylee@126.com
  */
-package com.lee.jcwap.dict.entity;
+package com.lee.jcwap.dict.dao.lw;

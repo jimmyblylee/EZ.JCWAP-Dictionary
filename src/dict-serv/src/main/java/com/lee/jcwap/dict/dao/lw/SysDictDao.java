@@ -17,10 +17,37 @@
  * with this library; if not, write to the Free Software Foundation.
  * ***************************************************************************/
 
+package com.lee.jcwap.dict.dao.lw;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
+import com.lee.jcwap.dict.entity.SysDict;
+import com.lee.jwaf.jpa.AbstractDao;
+
 /**
- * ClassName : package-info <br>
- * Description : entities for feature of dictionary <br>
+ * ClassName : SysDictDao <br>
+ * Description : dao of entity {@link SysDict} <br>
  * Create Time : 2016-09-23 <br>
- * Create by : jimmyblylee@126.com
+ * @author jimmyblylee@126.com
  */
-package com.lee.jcwap.dict.entity;
+@Repository
+@Scope
+@SuppressWarnings("unused")
+public class SysDictDao extends AbstractDao {
+
+    /** EntityManager. */
+    @PersistenceContext(unitName = "dict_mgmt")
+    private EntityManager entityManager;
+
+    /**
+     *  @return the entity manager.
+     *  */
+    protected EntityManager em() {
+        return entityManager;
+    }
+
+}
